@@ -49,7 +49,7 @@ const competitionFormSchema = z.object({
   birthDate: z
     .string()
     .min(1, "Geburtsdatum ist erforderlich")
-    .regex(/^\d{4}-\d{2}-\d{2}$/, "Geburtsdatum muss im Format YYYY-MM-DD eingegeben werden")
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "Bitte geben Sie ein gültiges Datum im Format TT.MM.JJJJ ein")
     .refine((date) => {
       const birthDate = new Date(date);
       const today = new Date();
@@ -73,13 +73,14 @@ const competitionFormSchema = z.object({
     .min(1, "Stadt ist erforderlich")
     .min(2, "Stadt muss mindestens 2 Zeichen lang sein")
     .max(50, "Stadt darf maximal 50 Zeichen lang sein")
-    .regex(/^[a-zA-ZäöüßÄÖÜ\s-']+$/, "Stadt darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
+    .regex(/^[a-zA-ZäöüßÄÖÜàâéèêëïîôùûçÀÂÉÈÊËÏÎÔÙÛÇŒœ\s-']+$/, "Stadt darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
 
   state: z
     .string()
     .min(1, "Bundesland/Kanton ist erforderlich")
     .min(2, "Bundesland/Kanton muss mindestens 2 Zeichen lang sein")
-    .max(50, "Bundesland/Kanton darf maximal 50 Zeichen lang sein"),
+    .max(50, "Bundesland/Kanton darf maximal 50 Zeichen lang sein")
+    .regex(/^[a-zA-ZäöüßÄÖÜàâéèêëïîôùûçÀÂÉÈÊËÏÎÔÙÛÇŒœ\s-']+$/, "Bundesland/Kanton darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
 
   postalCode: z
     .string()
@@ -278,7 +279,7 @@ export default function WettbewerbPage() {
 
     // Send form data to API
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('/landing/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -345,18 +346,23 @@ export default function WettbewerbPage() {
     const error = validationErrors[fieldName];
     const isFieldTouched = touchedFields.has(fieldName);
 
-    if (!error || !isFieldTouched) return null;
-
     return (
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        className="mt-1 text-sm text-red-600 flex items-center gap-1"
-      >
-        <AlertTriangle className="w-4 h-4 flex-shrink-0" />
-        <span>{error}</span>
-      </motion.div>
+      <AnimatePresence>
+        {error && isFieldTouched && (
+          <motion.div
+            initial={{ opacity: 0, height: 0, y: -10 }}
+            animate={{ opacity: 1, height: "auto", y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="mt-1 text-sm text-red-600 flex items-center gap-1">
+              <AlertTriangle className="w-4 h-4 flex-shrink-0" />
+              <span>{error}</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     );
   };
 
@@ -650,7 +656,7 @@ export default function WettbewerbPage() {
                   </h3>
                   <div>
                     <label htmlFor="birthDate" className="block text-sm font-medium text-gray-700 mb-2">
-                      Geburtsdatum *
+                      Geburtsdatum * <span className="text-xs text-gray-500 font-normal">(TT.MM.JJJJ)</span>
                     </label>
                     <input
                       type="date"
@@ -908,6 +914,8 @@ export default function WettbewerbPage() {
                               type="radio"
                               name="termsAccepted"
                               value="agree"
+                              id="terms-agree"
+                              aria-label="Ja, ich stimme zu"
                               required
                               checked={formData.termsAccepted === "agree"}
                               onChange={handleInputChange}
@@ -968,6 +976,8 @@ export default function WettbewerbPage() {
                               type="radio"
                               name="termsAccepted"
                               value="disagree"
+                              id="terms-disagree"
+                              aria-label="Nein, ich stimme nicht zu"
                               checked={formData.termsAccepted === "disagree"}
                               onChange={handleInputChange}
                               className="h-5 w-5 text-red-600 border-2 border-gray-300 focus:ring-2 focus:ring-red-500 cursor-pointer"
@@ -1212,7 +1222,11 @@ export default function WettbewerbPage() {
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                           <span className="text-sm text-gray-600">
-                            <span className="font-semibold">Datum:</span> {new Date().toLocaleDateString('de-CH')}
+                            <span className="font-semibold">Datum:</span> {new Date().toLocaleDateString('de-CH', {
+                              day: '2-digit',
+                              month: '2-digit',
+                              year: 'numeric'
+                            })}
                           </span>
                         </div>
                       </div>

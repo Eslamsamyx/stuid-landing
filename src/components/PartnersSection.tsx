@@ -109,11 +109,18 @@ export default function PartnersSection() {
         <div className="space-y-6 mb-16">
           {/* Row 1 - Left to Right */}
           <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
 
             <motion.div
-              className="flex gap-6 w-max"
+              className="flex gap-4 sm:gap-6 w-max"
+              style={{
+                willChange: "transform",
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden"
+              }}
               animate={{ x: [0, -1920] }}
               transition={{
                 x: {
@@ -127,14 +134,14 @@ export default function PartnersSection() {
               {[...partnersRow1, ...partnersRow1, ...partnersRow1].map((partner, index) => (
                 <div
                   key={`row1-${index}`}
-                  className="group flex-shrink-0 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl px-8 py-6 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 transition-all duration-300 min-w-[200px]"
+                  className="group flex-shrink-0 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl px-4 py-3 sm:px-8 sm:py-6 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 transition-all duration-300 min-w-[140px] sm:min-w-[200px]"
                 >
                   <div className="text-center">
-                    <h3 className="font-bold text-gray-800 mb-1">{partner.name}</h3>
-                    <p className="text-sm text-cyan-600 font-semibold">
+                    <h3 className="font-bold text-sm sm:text-base text-gray-800 mb-1">{partner.name}</h3>
+                    <p className="text-xs sm:text-sm text-cyan-600 font-semibold">
                       bis <span className="blur-[3px] select-none">{partner.discount}</span>%
                     </p>
-                    <p className="text-xs text-gray-500">{partner.category}</p>
+                    <p className="text-xs sm:text-xs text-gray-500">{partner.category}</p>
                   </div>
                 </div>
               ))}
@@ -143,11 +150,18 @@ export default function PartnersSection() {
 
           {/* Row 2 - Right to Left */}
           <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
 
             <motion.div
-              className="flex gap-6 w-max"
+              className="flex gap-4 sm:gap-6 w-max"
+              style={{
+                willChange: "transform",
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden"
+              }}
               initial={{ x: -1920 }}
               animate={{ x: 0 }}
               transition={{
@@ -162,14 +176,14 @@ export default function PartnersSection() {
               {[...partnersRow2, ...partnersRow2, ...partnersRow2].map((partner, index) => (
                 <div
                   key={`row2-${index}`}
-                  className="group flex-shrink-0 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl px-8 py-6 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 transition-all duration-300 min-w-[200px]"
+                  className="group flex-shrink-0 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl px-4 py-3 sm:px-8 sm:py-6 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 transition-all duration-300 min-w-[140px] sm:min-w-[200px]"
                 >
                   <div className="text-center">
-                    <h3 className="font-bold text-gray-800 mb-1">{partner.name}</h3>
-                    <p className="text-sm text-cyan-600 font-semibold">
+                    <h3 className="font-bold text-sm sm:text-base text-gray-800 mb-1">{partner.name}</h3>
+                    <p className="text-xs sm:text-sm text-cyan-600 font-semibold">
                       bis <span className="blur-[3px] select-none">{partner.discount}</span>%
                     </p>
-                    <p className="text-xs text-gray-500">{partner.category}</p>
+                    <p className="text-xs sm:text-xs text-gray-500">{partner.category}</p>
                   </div>
                 </div>
               ))}
@@ -178,11 +192,18 @@ export default function PartnersSection() {
 
           {/* Row 3 - Left to Right (Slower) */}
           <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
 
             <motion.div
-              className="flex gap-6 w-max"
+              className="flex gap-4 sm:gap-6 w-max"
+              style={{
+                willChange: "transform",
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden"
+              }}
               animate={{ x: [0, -1920] }}
               transition={{
                 x: {
@@ -196,14 +217,14 @@ export default function PartnersSection() {
               {[...partnersRow3, ...partnersRow3, ...partnersRow3].map((partner, index) => (
                 <div
                   key={`row3-${index}`}
-                  className="group flex-shrink-0 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl px-8 py-6 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 transition-all duration-300 min-w-[200px]"
+                  className="group flex-shrink-0 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl px-4 py-3 sm:px-8 sm:py-6 hover:border-cyan-400 hover:bg-gradient-to-br hover:from-cyan-50 hover:to-blue-50 transition-all duration-300 min-w-[140px] sm:min-w-[200px]"
                 >
                   <div className="text-center">
-                    <h3 className="font-bold text-gray-800 mb-1">{partner.name}</h3>
-                    <p className="text-sm text-cyan-600 font-semibold">
+                    <h3 className="font-bold text-sm sm:text-base text-gray-800 mb-1">{partner.name}</h3>
+                    <p className="text-xs sm:text-sm text-cyan-600 font-semibold">
                       bis <span className="blur-[3px] select-none">{partner.discount}</span>%
                     </p>
-                    <p className="text-xs text-gray-500">{partner.category}</p>
+                    <p className="text-xs sm:text-xs text-gray-500">{partner.category}</p>
                   </div>
                 </div>
               ))}

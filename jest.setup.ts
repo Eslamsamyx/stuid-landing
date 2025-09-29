@@ -1,6 +1,11 @@
 // Learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom'
 
+// Mock libraries - see __mocks__ folder for implementation
+jest.mock('framer-motion');
+jest.mock('qrcode.react');
+jest.mock('lucide-react');
+
 // Mock IntersectionObserver
 class MockIntersectionObserver implements IntersectionObserver {
   root: Element | Document | null = null

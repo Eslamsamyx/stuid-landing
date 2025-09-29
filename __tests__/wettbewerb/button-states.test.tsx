@@ -27,30 +27,35 @@ jest.mock('next/link', () => {
 // Mock next/dynamic for PhoneInput
 jest.mock('next/dynamic', () => ({
   __esModule: true,
-  default: (() => {
-    const DynamicComponent = ({ onChange, value, inputProps }: any) => (
+  default: () => {
+    const DynamicComponent = ({
+      onChange,
+      value,
+      inputProps,
+      country,
+      containerClass,
+      buttonClass,
+      dropdownClass,
+      searchClass,
+      enableSearch,
+      searchPlaceholder,
+      preferredCountries,
+      onlyCountries,
+      ...props
+    }: any) => (
       <input
-        {...inputProps}
+        type="tel"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         data-testid="phone-input"
+        {...inputProps}
       />
     );
     return DynamicComponent;
-  }),
+  },
 }));
 
-// Mock framer-motion
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
-    p: ({ children, ...props }: any) => <p {...props}>{children}</p>,
-  },
-  AnimatePresence: ({ children }: any) => <>{children}</>,
-  useScroll: () => ({ scrollYProgress: 0 }),
-  useTransform: () => 0,
-}));
+// Framer-motion is mocked globally in jest.setup.ts
 
 // Mock fetch API for email sending
 global.fetch = jest.fn();

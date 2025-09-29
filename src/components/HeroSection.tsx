@@ -6,9 +6,11 @@ import {
   Users,
   Star,
   Smartphone,
-  ChevronRight
+  ChevronRight,
+  Trophy,
+  Sparkles,
+  Gift
 } from "lucide-react";
-import Navbar from "./Navbar";
 import Logo from "./Logo";
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -23,6 +25,13 @@ export default function HeroSection() {
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-xl opacity-20"
+          style={{
+            willChange: "transform",
+            transform: "translateZ(0)",
+            WebkitTransform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
           animate={{
             x: [0, 100, 0],
             y: [0, -100, 0],
@@ -35,6 +44,13 @@ export default function HeroSection() {
         />
         <motion.div
           className="absolute bottom-20 right-10 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20"
+          style={{
+            willChange: "transform",
+            transform: "translateZ(0)",
+            WebkitTransform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
           animate={{
             x: [0, -100, 0],
             y: [0, 100, 0],
@@ -47,6 +63,13 @@ export default function HeroSection() {
         />
         <motion.div
           className="absolute top-1/2 left-1/2 w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-20"
+          style={{
+            willChange: "transform",
+            transform: "translateZ(0)",
+            WebkitTransform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
           animate={{
             x: [0, 50, -50, 0],
             y: [0, -50, 50, 0],
@@ -59,8 +82,6 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Header */}
-      <Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-screen md:min-h-[80vh] flex items-center overflow-hidden py-12 md:py-20">
@@ -83,6 +104,11 @@ export default function HeroSection() {
                 bottom: bubble.bottom,
                 left: bubble.left,
                 right: bubble.right,
+                willChange: "transform",
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
               }}
               animate={{
                 x: [0, 50, 0],
@@ -188,6 +214,75 @@ export default function HeroSection() {
                   <ChevronRight className="w-5 h-5" />
                 </motion.button>
               </motion.div>
+
+              {/* Wettbewerb Button - Highlighted */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+                className="mt-8 flex flex-wrap items-center gap-4 justify-center lg:justify-start"
+              >
+                <a
+                  href="/landing/wettbewerb"
+                  className="relative inline-flex items-center gap-3 px-8 py-4 group"
+                >
+                  {/* Animated background gradient */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 rounded-2xl"
+                    animate={{
+                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    style={{ backgroundSize: '200% 200%' }}
+                  />
+
+                  {/* Glow effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 rounded-2xl blur-lg opacity-50"
+                    animate={{
+                      scale: [1, 1.1, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                    }}
+                  />
+
+                  {/* Content */}
+                  <div className="relative flex items-center gap-3 text-white font-bold text-lg">
+                    <Sparkles className="w-5 h-5" />
+                    <span>Wettbewerb</span>
+                    <Trophy className="w-5 h-5" />
+                  </div>
+
+                  {/* Badge */}
+                  <motion.div
+                    className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold"
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      rotate: [0, 5, -5, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                    }}
+                  >
+                    NEU!
+                  </motion.div>
+                </a>
+
+                {/* Text beside button */}
+                <div className="flex items-center gap-2">
+                  <Gift className="w-4 h-4 text-orange-500" />
+                  <p className="text-sm text-gray-600">
+                    Gewinne tolle Preise in unserem Studentenwettbewerb!
+                  </p>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Right Content - Animated Student Card */}
@@ -200,22 +295,33 @@ export default function HeroSection() {
               <div className="relative max-w-sm mx-auto lg:max-w-md">
                 <motion.div
                   animate={{
-                    rotateY: [0, 10, 0, -10, 0],
-                    y: [0, -20, 0],
+                    rotateY: [0, 5, 0, -5, 0],
+                    y: [0, -15, 0],
+                    scale: [1, 1.02, 1],
                   }}
                   transition={{
                     rotateY: {
-                      duration: 6,
+                      duration: 8,
                       repeat: Infinity,
+                      ease: "easeInOut",
                     },
                     y: {
                       duration: 4,
                       repeat: Infinity,
                       ease: "easeInOut",
+                    },
+                    scale: {
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
                     }
                   }}
                   className="bg-gradient-to-br from-cyan-400 via-blue-500 to-teal-600 rounded-3xl p-6 lg:p-8 shadow-2xl relative"
-                  style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
+                  style={{
+                    willChange: "transform",
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                  }}
                 >
                   <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6">
                     <div className="flex items-center gap-4 mb-4">

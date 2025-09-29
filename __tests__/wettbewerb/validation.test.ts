@@ -7,14 +7,14 @@ const competitionFormSchema = z.object({
     .min(1, "Vorname ist erforderlich")
     .min(2, "Vorname muss mindestens 2 Zeichen lang sein")
     .max(50, "Vorname darf maximal 50 Zeichen lang sein")
-    .regex(/^[a-zA-ZäöüßÄÖÜ\s-']+$/, "Vorname darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
+    .regex(/^[a-zA-ZäöüßÄÖÜàâéèêëïîôùûçÀÂÉÈÊËÏÎÔÙÛÇŒœ\s-']+$/, "Vorname darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
 
   lastName: z
     .string()
     .min(1, "Nachname ist erforderlich")
     .min(2, "Nachname muss mindestens 2 Zeichen lang sein")
     .max(50, "Nachname darf maximal 50 Zeichen lang sein")
-    .regex(/^[a-zA-ZäöüßÄÖÜ\s-']+$/, "Nachname darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
+    .regex(/^[a-zA-ZäöüßÄÖÜàâéèêëïîôùûçÀÂÉÈÊËÏÎÔÙÛÇŒœ\s-']+$/, "Nachname darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
 
   email: z
     .string()
@@ -55,13 +55,14 @@ const competitionFormSchema = z.object({
     .min(1, "Stadt ist erforderlich")
     .min(2, "Stadt muss mindestens 2 Zeichen lang sein")
     .max(50, "Stadt darf maximal 50 Zeichen lang sein")
-    .regex(/^[a-zA-ZäöüßÄÖÜ\s-']+$/, "Stadt darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
+    .regex(/^[a-zA-ZäöüßÄÖÜàâéèêëïîôùûçÀÂÉÈÊËÏÎÔÙÛÇŒœ\s-']+$/, "Stadt darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
 
   state: z
     .string()
     .min(1, "Bundesland/Kanton ist erforderlich")
     .min(2, "Bundesland/Kanton muss mindestens 2 Zeichen lang sein")
-    .max(50, "Bundesland/Kanton darf maximal 50 Zeichen lang sein"),
+    .max(50, "Bundesland/Kanton darf maximal 50 Zeichen lang sein")
+    .regex(/^[a-zA-ZäöüßÄÖÜàâéèêëïîôùûçÀÂÉÈÊËÏÎÔÙÛÇŒœ\s-']+$/, "Bundesland/Kanton darf nur Buchstaben, Bindestriche und Apostrophe enthalten"),
 
   postalCode: z
     .string()

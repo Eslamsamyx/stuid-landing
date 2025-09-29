@@ -4,3 +4,29 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+/* Safari-specific optimizations for smooth animations */
+@supports (-webkit-appearance: none) {
+  /* Force GPU acceleration for all transforms */
+  * {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+  }
+
+  /* Optimize scrolling animations */
+  [class*="overflow-hidden"] {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Smooth transitions for hover effects */
+  [class*="transition"] {
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Fix Safari flexbox issues */
+  .flex {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+  }
+}

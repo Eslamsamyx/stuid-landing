@@ -1,17 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
 import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-gray-900 to-black py-16 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-slate-800 via-slate-900 to-black py-16 relative overflow-hidden border-t-2 border-blue-500/30">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-cyan-900/20 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-900/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-900/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/8 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative">
@@ -24,18 +25,17 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <motion.div
-              className="inline-block mb-4"
-              whileHover={{ opacity: 0.8 }}
-            >
+            <Link href="/" className="inline-block mb-4">
               <Logo
-                textClassName="text-5xl font-bold"
-                imageClassName="h-14 w-auto"
+                textClassName="text-7xl font-bold"
+                imageClassName="h-28 w-auto"
                 showAnimation={false}
-                className="[&_span:first-child]:!text-transparent [&_span:first-child]:!bg-clip-text [&_span:first-child]:!bg-gradient-to-r [&_span:first-child]:!from-cyan-400 [&_span:first-child]:!to-blue-500 [&_span:last-child]:!text-white"
+                isWhite={true}
+                className="[&_span:first-child]:!text-transparent [&_span:first-child]:!bg-clip-text [&_span:first-child]:!bg-gradient-to-r [&_span:first-child]:!from-blue-400 [&_span:first-child]:!to-blue-500 [&_span:last-child]:!text-white"
               />
-            </motion.div>
-            <p className="text-gray-400 text-lg">
+            </Link>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto mb-3 rounded-full"></div>
+            <p className="text-gray-300 text-lg">
               Die digitale Studentenkarte für die Schweiz
             </p>
           </motion.div>
@@ -50,33 +50,33 @@ export default function Footer() {
           >
             {/* Contact Info */}
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mb-4 shadow-lg shadow-blue-500/25">
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold text-white mb-2">E-Mail</h3>
-              <a href="mailto:info@bvsbservices.ch" className="text-gray-400 hover:text-cyan-400 transition">
+              <a href="mailto:info@bvsbservices.ch" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">
                 info@bvsbservices.ch
               </a>
             </div>
 
             {/* Phone */}
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mb-4 shadow-lg shadow-blue-500/25">
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold text-white mb-2">Telefon</h3>
-              <a href="tel:+41586801350" className="text-gray-400 hover:text-cyan-400 transition">
+              <a href="tel:+41586801350" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">
                 058 680 13 50
               </a>
             </div>
 
             {/* Address */}
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mb-4 shadow-lg shadow-blue-500/25">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold text-white mb-2">Adresse</h3>
-              <p className="text-gray-400">
+              <p className="text-gray-300">
                 Bösch 106<br />
                 6331 Hünenberg ZG<br />
                 Switzerland
@@ -94,21 +94,21 @@ export default function Footer() {
           >
             <motion.a
               href="#"
-              className="w-12 h-12 bg-gray-800/50 backdrop-blur-sm hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group"
+              className="w-12 h-12 bg-slate-800/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/25"
             >
-              <Facebook className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+              <Facebook className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
             </motion.a>
             <motion.a
               href="#"
-              className="w-12 h-12 bg-gray-800/50 backdrop-blur-sm hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group"
+              className="w-12 h-12 bg-slate-800/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/25"
             >
-              <Instagram className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+              <Instagram className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
             </motion.a>
             <motion.a
               href="#"
-              className="w-12 h-12 bg-gray-800/50 backdrop-blur-sm hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group"
+              className="w-12 h-12 bg-slate-800/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/25"
             >
-              <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+              <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
             </motion.a>
           </motion.div>
 
@@ -120,20 +120,20 @@ export default function Footer() {
             transition={{ delay: 0.3 }}
             className="text-center mb-8"
           >
-            <div className="inline-flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+            <div className="inline-flex flex-wrap justify-center gap-6 text-sm text-gray-400">
               <div>
-                <span className="text-gray-600">Parent Company:</span>{" "}
-                <span className="text-gray-400">BVS Buchverlag und Service AG</span>
+                <span className="text-gray-500">Parent Company:</span>{" "}
+                <span className="text-gray-300">BVS Buchverlag und Service AG</span>
               </div>
-              <div className="hidden md:block text-gray-700">•</div>
+              <div className="hidden md:block text-blue-500/50">•</div>
               <div>
-                <span className="text-gray-600">Handelsregister:</span>{" "}
-                <span className="text-gray-400 font-mono">CH-320-3038745-9</span>
+                <span className="text-gray-500">Handelsregister:</span>{" "}
+                <span className="text-gray-300 font-mono">CH-320-3038745-9</span>
               </div>
-              <div className="hidden md:block text-gray-700">•</div>
+              <div className="hidden md:block text-blue-500/50">•</div>
               <div>
-                <span className="text-gray-600">MwSt-Nr.:</span>{" "}
-                <span className="text-gray-400 font-mono">CHE-108.280.996</span>
+                <span className="text-gray-500">MwSt-Nr.:</span>{" "}
+                <span className="text-gray-300 font-mono">CHE-108.280.996</span>
               </div>
             </div>
           </motion.div>
@@ -144,10 +144,10 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="border-t border-gray-800/50 pt-8"
-        >
+          className="border-t border-blue-500/20 pt-8 relative">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
           <div className="flex justify-center">
-            <p className="text-gray-500 text-sm text-center">
+            <p className="text-gray-400 text-sm text-center">
               © 2024 StuID by BVS Buchverlag und Service AG. Alle Rechte vorbehalten.
             </p>
           </div>

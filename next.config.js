@@ -7,9 +7,13 @@ import "./src/env.js";
 /** @type {import("next").NextConfig} */
 const config = {
   output: 'standalone',
+  basePath: '/landing',
+  assetPrefix: '/landing',
   images: {
     unoptimized: true
-  }
+  },
+  // Ensure trailing slashes work correctly with subpath
+  trailingSlash: true
 };
 
 export default config;

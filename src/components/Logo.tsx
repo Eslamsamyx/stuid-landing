@@ -9,13 +9,15 @@ interface LogoProps {
   imageClassName?: string;
   textClassName?: string;
   showAnimation?: boolean;
+  isWhite?: boolean;
 }
 
 export default function Logo({
   className = "",
   imageClassName = "h-10 w-auto",
   textClassName = "text-3xl font-bold",
-  showAnimation = true
+  showAnimation = true,
+  isWhite = false
 }: LogoProps) {
   const [hasLogo, setHasLogo] = useState<boolean | null>(null);
   const [checkAttempted, setCheckAttempted] = useState(false);
@@ -41,7 +43,7 @@ export default function Logo({
     // Check if logo.webp exists
     const checkLogo = async () => {
       try {
-        const response = await fetch('/logo.webp', { method: 'HEAD' });
+        const response = await fetch('/landing/logo.webp', { method: 'HEAD' });
         const logoExists = response.ok;
         setHasLogo(logoExists);
         // Cache the result in sessionStorage
@@ -72,11 +74,11 @@ export default function Logo({
     return (
       <div className={className}>
         <Image
-          src="/logo.webp"
+          src="/landing/logo.webp"
           alt="STUID Logo"
           width={120}
           height={40}
-          className={imageClassName}
+          className={`${imageClassName} ${isWhite ? 'brightness-0 invert' : ''}`}
           priority
         />
       </div>
