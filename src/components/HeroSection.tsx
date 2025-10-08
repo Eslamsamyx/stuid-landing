@@ -3,7 +3,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   CheckCircle,
-  Users,
   Star,
   Smartphone,
   ChevronRight,
@@ -11,6 +10,7 @@ import {
   Sparkles,
   Gift
 } from "lucide-react";
+import Image from "next/image";
 import Logo from "./Logo";
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -177,7 +177,7 @@ export default function HeroSection() {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-600 text-sm">Bis zu 50% Rabatt</span>
+                  <span className="text-gray-600 text-sm">Exklusive Rabatte</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -279,7 +279,7 @@ export default function HeroSection() {
                 <div className="flex items-center gap-2">
                   <Gift className="w-4 h-4 text-orange-500" />
                   <p className="text-sm text-gray-600">
-                    Gewinne tolle Preise in unserem Studentenwettbewerb!
+                    Gewinne iPhone, Red Bull & mehr in unserem Studentenwettbewerb!
                   </p>
                 </div>
               </motion.div>
@@ -325,8 +325,15 @@ export default function HeroSection() {
                 >
                   <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-14 h-14 lg:w-16 lg:h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white">
-                        <Users className="w-7 h-7 lg:w-8 lg:h-8" />
+                      <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0 relative">
+                        <Image
+                          src="/landing/id-student-image.webp"
+                          alt="Student ID"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 56px, 64px"
+                          unoptimized
+                        />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-800">Victoria Müller</h3>
@@ -335,11 +342,11 @@ export default function HeroSection() {
                     </div>
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Gültigkeit</span>
+                        <span className="text-gray-600">Gültig bis</span>
                         <span className="font-medium">30.9.2029</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Geboren</span>
+                        <span className="text-gray-600">Geburtsdatum</span>
                         <span className="font-medium">15.7.2007</span>
                       </div>
                       <div className="pt-3">

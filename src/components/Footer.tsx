@@ -122,17 +122,14 @@ export default function Footer() {
           >
             <div className="inline-flex flex-wrap justify-center gap-6 text-sm text-gray-400">
               <div>
-                <span className="text-gray-500">Parent Company:</span>{" "}
                 <span className="text-gray-300">BVS Buchverlag und Service AG</span>
               </div>
               <div className="hidden md:block text-blue-500/50">•</div>
               <div>
-                <span className="text-gray-500">Handelsregister:</span>{" "}
                 <span className="text-gray-300 font-mono">CH-320-3038745-9</span>
               </div>
               <div className="hidden md:block text-blue-500/50">•</div>
               <div>
-                <span className="text-gray-500">MwSt-Nr.:</span>{" "}
                 <span className="text-gray-300 font-mono">CHE-108.280.996</span>
               </div>
             </div>
@@ -148,7 +145,7 @@ export default function Footer() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
           <div className="flex justify-center">
             <p className="text-gray-400 text-sm text-center">
-              © 2024 StuID by BVS Buchverlag und Service AG. Alle Rechte vorbehalten.
+              © 2025 StuID by BVS Buchverlag und Service AG. Alle Rechte vorbehalten.
             </p>
           </div>
         </motion.div>

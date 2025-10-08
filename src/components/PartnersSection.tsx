@@ -88,7 +88,7 @@ export default function PartnersSection() {
             >
               <div className="flex items-center justify-center gap-2 mb-1">
                 <TrendingUp className="w-5 h-5 text-teal-600" />
-                <p className="text-3xl font-bold text-gray-800">€500+</p>
+                <p className="text-3xl font-bold text-gray-800">CHF 500+</p>
               </div>
               <p className="text-sm text-gray-600">Ersparnis/Jahr</p>
             </motion.div>

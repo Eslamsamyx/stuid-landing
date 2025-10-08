@@ -44,3 +44,9 @@ yarn-error.log*
 
 # idea files
 .idea
+
+# AWS keys - DO NOT COMMIT
+aws_vps_key
+aws_vps_key.pub
+*.pem
+*.key

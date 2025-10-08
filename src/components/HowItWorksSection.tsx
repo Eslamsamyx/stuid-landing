@@ -7,7 +7,7 @@ const steps = [
   {
     step: "01",
     icon: School,
-    title: "Hochschulen registrieren sich",
+    title: "Schulen registrieren sich",
     description: "Bildungseinrichtungen werden Partner und stellen ihre Studierendendaten zur Verfügung",
     color: "from-cyan-500 to-cyan-600",
     bgColor: "bg-cyan-50",
@@ -153,7 +153,7 @@ export default function HowItWorksSection() {
                   </h4>
                   <p className="text-gray-600 leading-relaxed">
                     Rabatte sind nur für verifizierte Studierende sichtbar. Deine Daten werden sicher
-                    verschlüsselt und ausschließlich zur Verifizierung deines Studentenstatus verwendet.
+                    verschlüsselt und ausschliesslich zur Verifizierung deines Studentenstatus verwendet.
                   </p>
                 </div>
               </div>

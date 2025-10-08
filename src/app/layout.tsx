@@ -15,7 +15,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "StuID - Die digitale Studentenkarte für die Schweiz",
-  description: "Erhalte exklusive Rabatte und Vorteile mit deiner digitalen Studentenkarte. Verfügbar für Studierende an allen Schweizer Hochschulen.",
+  description: "Erhalte exklusive Rabatte und Vorteile mit deiner digitalen Studentenkarte. Verfügbar für Studierende an allen Schweizer Schulen.",
   metadataBase: new URL('https://stuid.ch/landing'),
   icons: {
     icon: [
