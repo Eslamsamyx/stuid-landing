@@ -279,7 +279,7 @@ export default function WettbewerbPage() {
 
     // Send form data to API
     try {
-      const response = await fetch('/landing/api/send-email', {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

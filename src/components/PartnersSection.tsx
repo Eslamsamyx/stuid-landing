@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Smartphone, TrendingUp, Award } from "lucide-react";
 
-const partnersRow1 = [
+// Fallback data in case API fails
+const fallbackPartners = [
   { name: "Nike", discount: "20", category: "Sport" },
   { name: "Adidas", discount: "15", category: "Sport" },
   { name: "Apple", discount: "10", category: "Tech" },
@@ -13,9 +15,6 @@ const partnersRow1 = [
   { name: "Zara", discount: "20", category: "Mode" },
   { name: "McDonald's", discount: "15", category: "Food" },
   { name: "Starbucks", discount: "10", category: "Food" },
-];
-
-const partnersRow2 = [
   { name: "Spotify", discount: "50", category: "Entertainment" },
   { name: "Netflix", discount: "30", category: "Entertainment" },
   { name: "Adobe", discount: "60", category: "Software" },
@@ -24,9 +23,6 @@ const partnersRow2 = [
   { name: "Booking.com", discount: "20", category: "Travel" },
   { name: "Amazon", discount: "15", category: "Shopping" },
   { name: "IKEA", discount: "20", category: "Möbel" },
-];
-
-const partnersRow3 = [
   { name: "Lufthansa", discount: "25", category: "Travel" },
   { name: "Swiss", discount: "20", category: "Travel" },
   { name: "Coop", discount: "10", category: "Shopping" },
@@ -37,7 +33,74 @@ const partnersRow3 = [
   { name: "UPC", discount: "20", category: "Internet" },
 ];
 
+interface Partner {
+  name: string;
+  discount: string;
+  category: string;
+}
+
+interface Discount {
+  percentage: number;
+}
+
+interface Category {
+  name: string;
+}
+
+interface Company {
+  name: string;
+  discounts?: Discount[];
+  categories?: Category[];
+}
+
+interface ApiResponse {
+  companies?: Company[];
+}
+
 export default function PartnersSection() {
+  const [partners, setPartners] = useState<Partner[]>(fallbackPartners);
+
+  useEffect(() => {
+    // Use production backend URL
+    const apiUrl = process.env.NODE_ENV === 'production'
+      ? "https://stuid.ch/api/companies/public/landing"
+      : "http://localhost:8000/api/companies/public/landing";
+
+    fetch(apiUrl)
+      .then((res) => res.json() as Promise<ApiResponse>)
+      .then((data) => {
+        if (data.companies && Array.isArray(data.companies)) {
+          const formattedPartners = data.companies.map((company: Company) => {
+            // Get max discount from discounts array
+            const maxDiscount = company.discounts && company.discounts.length > 0
+              ? Math.round(Math.max(...company.discounts.map((d) => d.percentage ?? 0)))
+              : 0;
+
+            // Get first category name
+            const category = company.categories && company.categories.length > 0
+              ? company.categories[0]?.name ?? "Diverse"
+              : "Diverse";
+
+            return {
+              name: company.name,
+              discount: maxDiscount > 0 ? String(maxDiscount) : "10",
+              category: category,
+            };
+          });
+
+          setPartners(formattedPartners.length > 0 ? formattedPartners : fallbackPartners);
+        }
+      })
+      .catch((err: unknown) => {
+        console.error("Failed to fetch partners:", err);
+        setPartners(fallbackPartners);
+      });
+  }, []);
+
+  // Split partners into 3 rows for scrolling animation
+  const partnersRow1 = partners.slice(0, Math.ceil(partners.length / 3));
+  const partnersRow2 = partners.slice(Math.ceil(partners.length / 3), Math.ceil(partners.length * 2 / 3));
+  const partnersRow3 = partners.slice(Math.ceil(partners.length * 2 / 3));
   return (
     <section className="py-24 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
       {/* Subtle Background */}

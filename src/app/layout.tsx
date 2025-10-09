@@ -16,28 +16,28 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "StuID - Die digitale Studentenkarte für die Schweiz",
   description: "Erhalte exklusive Rabatte und Vorteile mit deiner digitalen Studentenkarte. Verfügbar für Studierende an allen Schweizer Schulen.",
-  metadataBase: new URL('https://stuid.ch/landing'),
+  metadataBase: new URL('https://stuid.ch'),
   icons: {
     icon: [
-      { url: '/landing/favicon.ico?v=2', type: 'image/x-icon' },
-      { url: '/landing/favicon-16x16.png?v=2', sizes: '16x16', type: 'image/png' },
-      { url: '/landing/favicon-32x32.png?v=2', sizes: '32x32', type: 'image/png' }
+      { url: '/favicon.ico?v=2', type: 'image/x-icon' },
+      { url: '/favicon-16x16.png?v=2', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png?v=2', sizes: '32x32', type: 'image/png' }
     ],
     shortcut: [
-      { url: '/landing/favicon.ico?v=2' }
+      { url: '/favicon.ico?v=2' }
     ],
     apple: [
-      { url: '/landing/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' }
+      { url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' }
     ],
     other: [
       {
         rel: 'mask-icon',
-        url: '/landing/favicon-32x32.png?v=2',
+        url: '/favicon-32x32.png?v=2',
         color: '#4A90E2'
       }
     ]
   },
-  manifest: '/landing/site.webmanifest',
+  manifest: '/site.webmanifest',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -46,11 +46,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'StuID - Die digitale Studentenkarte für die Schweiz',
     description: 'Erhalte exklusive Rabatte und Vorteile mit deiner digitalen Studentenkarte.',
-    url: 'https://stuid.ch/landing',
+    url: 'https://stuid.ch',
     siteName: 'StuID',
     images: [
       {
-        url: '/landing/android-chrome-512x512.png',
+        url: '/android-chrome-512x512.png',
         width: 512,
         height: 512,
         alt: 'StuID Logo',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'StuID - Die digitale Studentenkarte für die Schweiz',
     description: 'Erhalte exklusive Rabatte und Vorteile mit deiner digitalen Studentenkarte.',
-    images: ['/landing/android-chrome-512x512.png'],
+    images: ['/android-chrome-512x512.png'],
   },
   category: 'education',
 };

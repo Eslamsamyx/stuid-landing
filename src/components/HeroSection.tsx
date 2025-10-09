@@ -223,7 +223,7 @@ export default function HeroSection() {
                 className="mt-8 flex flex-wrap items-center gap-4 justify-center lg:justify-start"
               >
                 <a
-                  href="/landing/wettbewerb"
+                  href="/wettbewerb"
                   className="relative inline-flex items-center gap-3 px-8 py-4 group"
                 >
                   {/* Animated background gradient */}
@@ -327,7 +327,7 @@ export default function HeroSection() {
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden flex-shrink-0 relative">
                         <Image
-                          src="/landing/id-student-image.webp"
+                          src="/id-student-image.webp"
                           alt="Student ID"
                           fill
                           className="object-cover"

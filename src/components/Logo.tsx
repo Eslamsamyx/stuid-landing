@@ -43,7 +43,7 @@ export default function Logo({
     // Check if logo.webp exists
     const checkLogo = async () => {
       try {
-        const response = await fetch('/landing/logo.webp', { method: 'HEAD' });
+        const response = await fetch('/logo.webp', { method: 'HEAD' });
         const logoExists = response.ok;
         setHasLogo(logoExists);
         // Cache the result in sessionStorage
@@ -74,7 +74,7 @@ export default function Logo({
     return (
       <div className={className}>
         <Image
-          src="/landing/logo.webp"
+          src="/logo.webp"
           alt="STUID Logo"
           width={120}
           height={40}
