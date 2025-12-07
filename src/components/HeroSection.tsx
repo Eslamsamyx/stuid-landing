@@ -192,15 +192,18 @@ export default function HeroSection() {
                 transition={{ delay: 0.5 }}
                 className="flex flex-wrap gap-4 justify-center lg:justify-start"
               >
-                <motion.a
-                  href="https://apps.apple.com/app/stuid/id6743324722"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl font-semibold hover:from-cyan-600 hover:to-blue-700 transition-colors"
+                <motion.button
+                  onClick={() => {
+                    const ctaSection = document.getElementById('cta-section');
+                    if (ctaSection) {
+                      ctaSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl font-semibold hover:from-cyan-600 hover:to-blue-700 transition-colors cursor-pointer"
                 >
                   <Smartphone className="w-5 h-5" />
                   App herunterladen
-                </motion.a>
+                </motion.button>
                 <motion.button
                   onClick={() => {
                     const infoSection = document.getElementById('info-section');
@@ -208,7 +211,7 @@ export default function HeroSection() {
                       infoSection.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="px-6 py-3 bg-white text-gray-800 rounded-2xl font-semibold border border-gray-200 hover:bg-gray-50 transition-colors flex items-center gap-2"
+                  className="px-6 py-3 bg-white text-gray-800 rounded-2xl font-semibold border border-gray-200 hover:bg-gray-50 transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   Mehr erfahren
                   <ChevronRight className="w-5 h-5" />

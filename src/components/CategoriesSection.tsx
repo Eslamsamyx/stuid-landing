@@ -131,7 +131,7 @@ export default function CategoriesSection() {
                 whileHover={{
                   scale: 1.02,
                 }}
-                className="relative group cursor-pointer inline-block w-[140px] sm:w-[200px] md:w-[250px] lg:w-[280px]"
+                className="relative group inline-block w-[140px] sm:w-[200px] md:w-[250px] lg:w-[280px]"
               >
                 <div className={`bg-gradient-to-br ${category.color} rounded-xl sm:rounded-2xl md:rounded-3xl p-3 sm:p-5 md:p-6 lg:p-8 h-full transition-all duration-500 group-hover:brightness-110`}>
                   <div className="relative z-10">
@@ -181,7 +181,7 @@ export default function CategoriesSection() {
                 whileHover={{
                   scale: 1.02,
                 }}
-                className="relative group cursor-pointer inline-block w-[140px] sm:w-[200px] md:w-[250px] lg:w-[280px]"
+                className="relative group inline-block w-[140px] sm:w-[200px] md:w-[250px] lg:w-[280px]"
               >
                 <div className={`bg-gradient-to-br ${category.color} rounded-xl sm:rounded-2xl md:rounded-3xl p-3 sm:p-5 md:p-6 lg:p-8 h-full transition-all duration-500 group-hover:brightness-110`}>
                   <div className="relative z-10">

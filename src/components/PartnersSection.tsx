@@ -303,13 +303,18 @@ export default function PartnersSection() {
           className="text-center"
         >
           <p className="text-gray-600 mb-2">Jeden Monat neue Partner!</p>
-          <Link
-            href="https://apps.apple.com/app/stuid/id6743324722"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-semibold hover:from-cyan-600 hover:to-blue-700 transition-colors text-lg"
+          <button
+            onClick={() => {
+              const ctaSection = document.getElementById('cta-section');
+              if (ctaSection) {
+                ctaSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-semibold hover:from-cyan-600 hover:to-blue-700 transition-colors text-lg cursor-pointer"
           >
             <Smartphone className="w-6 h-6" />
             Jetzt App herunterladen & sparen
-          </Link>
+          </button>
           <p className="text-gray-500 text-sm mt-4 max-w-md mx-auto">
             Alle Rabatte und exklusive Angebote sind in der StuID App verfügbar.
             Lade die App herunter, um die vollständigen Rabattcodes zu sehen und einzulösen.

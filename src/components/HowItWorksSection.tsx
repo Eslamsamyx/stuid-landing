@@ -93,7 +93,7 @@ export default function HowItWorksSection() {
                         <motion.div
                           className="inline-block"
                         >
-                          <div className={`w-20 h-20 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center shadow-lg relative cursor-pointer`}>
+                          <div className={`w-20 h-20 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center shadow-lg relative`}>
                             <Icon className="w-10 h-10 text-white z-10" />
                             <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
                               <span className={`text-sm font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
