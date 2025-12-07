@@ -224,7 +224,7 @@ export default function HeroSection() {
               >
                 <a
                   href="/wettbewerb"
-                  className="relative inline-flex items-center gap-3 px-8 py-4 group"
+                  className="relative inline-flex items-center gap-3 px-8 py-4 group cursor-pointer"
                 >
                   {/* Animated background gradient */}
                   <motion.div

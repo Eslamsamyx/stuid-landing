@@ -898,7 +898,7 @@ export default function WettbewerbPage() {
                     <div className="space-y-4">
                       {/* Agree Option */}
                       <div
-                        className={`relative border-2 rounded-xl p-5 cursor-pointer transition-all duration-300 ${
+                        className={`relative border-2 rounded-xl p-5 transition-all duration-300 cursor-pointer ${
                           formData.termsAccepted === "agree"
                             ? "border-green-500 bg-green-50"
                             : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
@@ -931,7 +931,7 @@ export default function WettbewerbPage() {
                             </div>
                             <p className="text-gray-600 text-sm leading-relaxed">
                               Ich stimme den{" "}
-                              <Link href="/agb" className="text-cyan-600 hover:text-cyan-700 underline font-medium">
+                              <Link href="/agb" className="text-cyan-600 hover:text-cyan-700 underline font-medium cursor-pointer">
                                 Teilnahmebedingungen
                               </Link>{" "}
                               zu und bestätige, dass meine Daten gemäss der{" "}
@@ -941,7 +941,7 @@ export default function WettbewerbPage() {
                                   e.stopPropagation();
                                   setShowPrivacyModal(true);
                                 }}
-                                className="text-cyan-600 hover:text-cyan-700 underline font-medium"
+                                className="text-cyan-600 hover:text-cyan-700 underline font-medium cursor-pointer"
                               >
                                 Datenschutzerklärung
                               </button>{" "}
@@ -960,7 +960,7 @@ export default function WettbewerbPage() {
 
                       {/* Disagree Option */}
                       <div
-                        className={`relative border-2 rounded-xl p-5 cursor-pointer transition-all duration-300 ${
+                        className={`relative border-2 rounded-xl p-5 transition-all duration-300 cursor-pointer ${
                           formData.termsAccepted === "disagree"
                             ? "border-red-500 bg-red-50"
                             : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
@@ -1241,14 +1241,14 @@ export default function WettbewerbPage() {
                     >
                       <Link
                         href="/"
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-colors duration-200"
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-colors duration-200 cursor-pointer"
                       >
                         <Home className="w-5 h-5" />
                         Zur Startseite
                       </Link>
                       <button
                         onClick={handleReset}
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200"
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 cursor-pointer"
                       >
                         <RefreshCw className="w-5 h-5" />
                         Weitere Teilnahme
@@ -1306,7 +1306,7 @@ export default function WettbewerbPage() {
                 </div>
                 <button
                   onClick={() => setShowPrivacyModal(false)}
-                  className="text-white/80 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors cursor-pointer"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -1328,7 +1328,7 @@ export default function WettbewerbPage() {
                     <div className="pl-9 space-y-1 text-gray-600 text-sm">
                       <p>• BVS Buchverlag und Service AG</p>
                       <p>• Bösch 106, 6331 Hünenberg ZG, Schweiz</p>
-                      <p>• E-Mail: <a href="mailto:info@bvsbservices.ch" className="text-cyan-600 hover:text-cyan-700 underline">info@bvsbservices.ch</a></p>
+                      <p>• E-Mail: <a href="mailto:info@bvsbservices.ch" className="text-cyan-600 hover:text-cyan-700 underline cursor-pointer">info@bvsbservices.ch</a></p>
                       <p>• Für StuID-spezifische Anfragen</p>
                     </div>
                   </div>
@@ -1451,8 +1451,8 @@ export default function WettbewerbPage() {
                       Beschwerderecht
                     </h3>
                     <ul className="pl-9 space-y-1 text-gray-600 text-sm">
-                      <li>• Schweizer Datenschutzbehörde: <a href="http://www.edoeb.admin.ch" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 underline">http://www.edoeb.admin.ch</a></li>
-                      <li>• EU-Datenschutzbehörden: <a href="https://edpb.europa.eu" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 underline">edpb.europa.eu</a></li>
+                      <li>• Schweizer Datenschutzbehörde: <a href="http://www.edoeb.admin.ch" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 underline cursor-pointer">http://www.edoeb.admin.ch</a></li>
+                      <li>• EU-Datenschutzbehörden: <a href="https://edpb.europa.eu" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 underline cursor-pointer">edpb.europa.eu</a></li>
                     </ul>
                   </div>
                 </div>
@@ -1462,7 +1462,7 @@ export default function WettbewerbPage() {
               <div className="border-t p-4 bg-gray-50 rounded-b-2xl">
                 <button
                   onClick={() => setShowPrivacyModal(false)}
-                  className="w-full md:w-auto px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-medium hover:from-cyan-600 hover:to-blue-700 transition-all"
+                  className="w-full md:w-auto px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-medium hover:from-cyan-600 hover:to-blue-700 transition-all cursor-pointer"
                 >
                   Schliessen
                 </button>

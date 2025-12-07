@@ -25,7 +25,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <Link href="/" className="inline-block mb-4">
+            <Link href="/" className="inline-block mb-4 cursor-pointer">
               <Logo
                 textClassName="text-7xl font-bold"
                 imageClassName="h-28 w-auto"
@@ -54,7 +54,7 @@ export default function Footer() {
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold text-white mb-2">E-Mail</h3>
-              <a href="mailto:info@bvsbservices.ch" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">
+              <a href="mailto:info@bvsbservices.ch" className="text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                 info@bvsbservices.ch
               </a>
             </div>
@@ -65,7 +65,7 @@ export default function Footer() {
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold text-white mb-2">Telefon</h3>
-              <a href="tel:+41586801350" className="text-gray-300 hover:text-blue-400 transition-colors duration-200">
+              <a href="tel:+41586801350" className="text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer">
                 058 680 13 50
               </a>
             </div>
@@ -94,19 +94,19 @@ export default function Footer() {
           >
             <motion.a
               href="#"
-              className="w-12 h-12 bg-slate-800/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/25"
+              className="w-12 h-12 bg-slate-800/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
             >
               <Facebook className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
             </motion.a>
             <motion.a
               href="#"
-              className="w-12 h-12 bg-slate-800/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/25"
+              className="w-12 h-12 bg-slate-800/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
             >
               <Instagram className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
             </motion.a>
             <motion.a
               href="#"
-              className="w-12 h-12 bg-slate-800/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/25"
+              className="w-12 h-12 bg-slate-800/60 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 rounded-full flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
             >
               <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
             </motion.a>
