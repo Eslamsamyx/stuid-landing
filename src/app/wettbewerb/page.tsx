@@ -666,7 +666,7 @@ export default function WettbewerbPage() {
                       value={formData.birthDate}
                       onChange={handleInputChange}
                       onBlur={handleBlur}
-                      className={`w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:border-transparent transition ${
+                      className={`w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:border-transparent transition cursor-pointer ${
                         validationErrors.birthDate && touchedFields.has('birthDate')
                           ? 'border-red-500 focus:ring-red-500'
                           : 'border-gray-300 focus:ring-cyan-500'
@@ -805,7 +805,7 @@ export default function WettbewerbPage() {
                           value={formData.country}
                           onChange={handleInputChange}
                           onBlur={handleBlur}
-                          className={`w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:border-transparent transition ${
+                          className={`w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:border-transparent transition cursor-pointer ${
                             validationErrors.country && touchedFields.has('country')
                               ? 'border-red-500 focus:ring-red-500'
                               : 'border-gray-300 focus:ring-cyan-500'
