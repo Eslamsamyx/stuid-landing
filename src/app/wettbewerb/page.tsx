@@ -8,11 +8,11 @@ import Navbar from "~/components/Navbar";
 import { Send, Check, X, Shield, CheckCircle, Home, RefreshCw, AlertTriangle, Trophy, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { z } from "zod";
-import "react-phone-input-2/lib/style.css";
+import "react-phone-number-input/style.css";
 
 // Dynamic import to avoid SSR issues
 const PhoneInput = dynamic(
-  () => import("react-phone-input-2").then((mod) => mod.default),
+  () => import("react-phone-number-input").then((mod) => mod.default),
   {
     ssr: false,
   }
@@ -226,15 +226,15 @@ export default function WettbewerbPage() {
     validateField(fieldName, value);
   };
 
-  const handlePhoneChange = (value: string) => {
+  const handlePhoneChange = (value?: string) => {
     setFormData((prev) => ({
       ...prev,
-      phoneNumber: value,
+      phoneNumber: value || "",
     }));
 
     // Mark phone field as touched and validate
     setTouchedFields(prev => new Set(prev).add('phoneNumber'));
-    if (value !== "") {
+    if (value) {
       validateField('phoneNumber', value);
     }
   };
@@ -592,52 +592,74 @@ export default function WettbewerbPage() {
                     </label>
                     <div className="phone-input-wrapper">
                       <PhoneInput
-                        country={"ch"}
+                        international
+                        defaultCountry="CH"
                         value={formData.phoneNumber}
                         onChange={handlePhoneChange}
-                        inputProps={{
-                          name: "phoneNumber",
-                          required: true,
-                          className: `w-full pl-12 pr-4 py-2.5 border rounded-lg focus:ring-2 focus:border-transparent transition ${
+                        countries={[
+                          "CH", "DE", "AT", "LI", "FR", "BE", "NL", "LU", "MC",
+                          "IT", "ES", "PT", "AD", "SM", "MT", "GR", "CY",
+                          "GB", "IE", "DK", "SE", "NO", "FI", "IS",
+                          "PL", "CZ", "SK", "HU", "SI", "HR", "RO", "BG", "RS", "AL",
+                          "EE", "LV", "LT", "BA", "MK", "ME", "UA", "MD", "BY"
+                        ]}
+                        labels={{
+                          CH: "Schweiz",
+                          DE: "Deutschland",
+                          AT: "Österreich",
+                          LI: "Liechtenstein",
+                          FR: "Frankreich",
+                          BE: "Belgien",
+                          NL: "Niederlande",
+                          LU: "Luxemburg",
+                          MC: "Monaco",
+                          IT: "Italien",
+                          ES: "Spanien",
+                          PT: "Portugal",
+                          AD: "Andorra",
+                          SM: "San Marino",
+                          MT: "Malta",
+                          GR: "Griechenland",
+                          CY: "Zypern",
+                          GB: "Vereinigtes Königreich",
+                          IE: "Irland",
+                          DK: "Dänemark",
+                          SE: "Schweden",
+                          NO: "Norwegen",
+                          FI: "Finnland",
+                          IS: "Island",
+                          PL: "Polen",
+                          CZ: "Tschechien",
+                          SK: "Slowakei",
+                          HU: "Ungarn",
+                          SI: "Slowenien",
+                          HR: "Kroatien",
+                          RO: "Rumänien",
+                          BG: "Bulgarien",
+                          RS: "Serbien",
+                          AL: "Albanien",
+                          EE: "Estland",
+                          LV: "Lettland",
+                          LT: "Litauen",
+                          BA: "Bosnien und Herzegowina",
+                          MK: "Nordmazedonien",
+                          ME: "Montenegro",
+                          UA: "Ukraine",
+                          MD: "Moldau",
+                          BY: "Belarus"
+                        }}
+                        className="phone-input-container"
+                        numberInputProps={{
+                          className: `w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:border-transparent transition ${
                             validationErrors.phoneNumber && touchedFields.has('phoneNumber')
                               ? 'border-red-500 focus:ring-red-500'
                               : 'border-gray-300 focus:ring-cyan-500'
                           }`,
+                          name: "phoneNumber",
+                          required: true,
                         }}
-                        containerClass="phone-input-container"
-                        buttonClass="phone-input-button"
-                        dropdownClass="phone-input-dropdown"
-                        searchClass="phone-input-search"
-                        enableSearch={true}
-                        searchPlaceholder="Land suchen..."
-                        preferredCountries={["ch", "de", "at", "li", "fr", "it", "be", "nl", "lu", "dk", "se", "no", "fi", "gb", "ie", "es", "pt", "pl", "cz", "hu", "gr"]}
-                        onlyCountries={[
-                          "ch", "de", "at", "li", "fr", "be", "nl", "lu", "mc",
-                          "it", "es", "pt", "ad", "sm", "mt", "gr", "cy",
-                          "gb", "ie", "dk", "se", "no", "fi", "is",
-                          "pl", "cz", "sk", "hu", "si", "hr", "ro", "bg", "rs", "al",
-                          "ee", "lv", "lt", "ba", "mk", "me", "ua", "md", "by"
-                        ]}
-                        localization={{
-                          de: "Deutschland",
-                          ch: "Schweiz",
-                          at: "Österreich",
-                          fr: "Frankreich",
-                          it: "Italien",
-                          es: "Spanien",
-                          pt: "Portugal",
-                          nl: "Niederlande",
-                          be: "Belgien",
-                          gb: "Vereinigtes Königreich",
-                          ie: "Irland",
-                          dk: "Dänemark",
-                          se: "Schweden",
-                          no: "Norwegen",
-                          fi: "Finnland",
-                          pl: "Polen",
-                          cz: "Tschechien",
-                          hu: "Ungarn",
-                          gr: "Griechenland"
+                        countrySelectProps={{
+                          className: "country-select"
                         }}
                       />
                       <ErrorMessage fieldName="phoneNumber" />
