@@ -162,7 +162,7 @@ export default function HeroSection() {
                 className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
               >
                 Kostenlose Vorteilskarte für alle Studierenden.
-                Spare bei über 100 Partnern in der ganzen Schweiz.
+                Spare bei über 120 Partnern in der ganzen Schweiz.
               </motion.p>
 
               <motion.div

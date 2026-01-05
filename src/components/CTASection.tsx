@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function CTASection() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="cta-section" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-teal-600" />
 
       {/* Animated background patterns */}

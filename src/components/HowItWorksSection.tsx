@@ -26,7 +26,7 @@ const steps = [
     step: "03",
     icon: Percent,
     title: "Exklusive Rabatte nutzen",
-    description: "Sofortiger Zugang zu Rabatten bei über 100 Partnern in der ganzen Schweiz",
+    description: "Sofortiger Zugang zu Rabatten bei über 120 Partnern in der ganzen Schweiz",
     color: "from-teal-500 to-cyan-600",
     bgColor: "bg-teal-50",
     delay: 0.4

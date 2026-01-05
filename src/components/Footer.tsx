@@ -145,7 +145,7 @@ export default function Footer() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
           <div className="flex justify-center">
             <p className="text-gray-400 text-sm text-center">
-              © 2025 StuID by BVS Buchverlag und Service AG. Alle Rechte vorbehalten.
+              © 2026 StuID by BVS Buchverlag und Service AG. Alle Rechte vorbehalten.
             </p>
           </div>
         </motion.div>
